@@ -9,7 +9,7 @@ public protocol FloatingTabBarItem: Hashable {
 
 @available(iOS 14.0, *)
 public struct FloatingTabView<SelectionValue: FloatingTabBarItem, Content: View>: View {
-    init(selection: Binding<SelectionValue>, @ViewBuilder content: () -> Content) {
+    public init(selection: Binding<SelectionValue>, @ViewBuilder content: () -> Content) {
         self._selection = selection
         self.content = content()
     }
