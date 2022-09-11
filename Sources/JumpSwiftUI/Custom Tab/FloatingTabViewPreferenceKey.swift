@@ -25,7 +25,7 @@ struct TabBarItemModifier<SelectionValue: FloatingTabBarItem>: ViewModifier {
 }
 
 @available(iOS 14.0, *)
-extension View {
+public extension View {
     func tabBarItem<SelectionValue: FloatingTabBarItem>(tab: SelectionValue, selection: Binding<SelectionValue>) -> some View {
         modifier(TabBarItemModifier(tab: tab, selection: selection))
     }
