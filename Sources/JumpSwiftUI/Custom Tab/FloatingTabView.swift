@@ -19,10 +19,12 @@ public struct FloatingTabView<SelectionValue: FloatingTabBarItem, Content: View>
     @State private var tabItems: [SelectionValue] = []
     
     public var body: some View {
-        ZStack(alignment: .bottom) {
+        ZStack {
             content
-                .edgesIgnoringSafeArea(.all)
-            MainTabView(tabs: tabItems, selection: $selection)
+            VStack {
+                Spacer()
+                MainTabView(tabs: tabItems, selection: $selection)
+            }
         }
         .onPreferenceChange(FloatingTabViewPreferenceKey.self) { value in
             tabItems = value
